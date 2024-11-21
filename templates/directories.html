@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справочник</title>
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+</style>
+<body>
+    <h1>Справочник</h1>
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="/directory-form" style="text-decoration: none; color: #007bff;">Добавить запись</a>
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Название предприятия</th>
+                <th>Тип продукции</th>
+                <th>Код</th>
+                <th>Код склада хранения</th>
+                <th>Ответственное лицо</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for directory in directories %}
+            <tr>
+                <td>{{ directory.company_name }}</td>
+                <td>{{ directory.product_type }}</td>
+                <td>{{ directory.code }}</td>
+                <td>{{ directory.storage_code }}</td>
+                <td>{{ directory.responsible_person }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="/" style="text-decoration: none; color: #007bff;">На главную</a>
+    </p>
+</body>
+</html>

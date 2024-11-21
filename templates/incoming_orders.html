@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список приходных ордеров</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список приходных ордеров</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название предприятия</th>
+                <th>Вид продукции</th>
+                <th>Склад</th>
+                <th>Рег. номер</th>
+                <th>Единица измерения</th>
+                <th>Цена</th>
+                <th>Сумма</th>
+                <th>Дата</th>
+                <th>Бухгалтер</th>
+                <th>Кассир</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.company_name }}</td>
+                <td>{{ order.product_type }}</td>
+                <td>{{ order.storage }}</td>
+                <td>{{ order.registration_number }}</td>
+                <td>{{ order.unit_of_measurement }}</td>
+                <td>{{ order.price_per_unit }}</td>
+                <td>{{ order.total_sum }}</td>
+                <td>{{ order.date_created }}</td>
+                <td>{{ order.chief_accountant }}</td>
+                <td>{{ order.cashier }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
